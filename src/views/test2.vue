@@ -11,9 +11,9 @@ import { javascript } from '@codemirror/lang-javascript'
 import { oneDark } from '@codemirror/theme-one-dark'
 import { smoothy } from 'thememirror';
 
-// const code = ref(`console.log('Hello, world!')`)
+const code = ref(`console.log('Hello, world!')`)
 const props = defineProps({
-    code: String
+    // code: String
 })
 const extensions = [javascript(), smoothy]
 
