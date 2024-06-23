@@ -1,5 +1,5 @@
 <template>
-    <codemirror :modelValue="code" placeholder="Code goes here..." :style="{ height: '400px' }" :autofocus="true"
+    <codemirror :modelValue="code" placeholder="Code goes here..." :style="{ height: '100%' }" :autofocus="true"
         :indent-with-tab="true" :tab-size="2" :extensions="extensions" @ready="handleReady" :disabled="true"
         @change="log('change', $event)" @focus="log('focus', $event)" @blur="log('blur', $event)" />
 </template>
@@ -11,9 +11,9 @@ import { javascript } from '@codemirror/lang-javascript'
 import { oneDark } from '@codemirror/theme-one-dark'
 import { smoothy } from 'thememirror';
 
-const code = ref(`console.log('Hello, world!')`)
+// const code = ref(`console.log('Hello, world!')`)
 const props = defineProps({
-    // code: String
+    code: String
 })
 const extensions = [javascript(), smoothy]
 

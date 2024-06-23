@@ -1,14 +1,31 @@
 <template>
-<el-text tag="b" style="font-size:30px;">问题描述</el-text>
-<p><scan v-html="result"></scan></p>
+<div style="display:flex; flex-direction: row;">
+    <div class="desc-container"><scan v-html="result"></scan></div>
+    <test2 :code="code" style="height:100%; width:50%; padding-left:20px; padding-top:20px;border-width:1px;" />
+</div>
 </template>
 <script setup>
 import markdownit from 'markdown-it'
 import problem from './assets/problem.json'
+import test2 from '../test2.vue'
+import { ref } from 'vue'
 const md = markdownit({
     breaks:true
 })
-const desc = problem.description
-const code = problem.code
-const result = md.render(desc)
+const desc = ref(problem.desc.replace("\\\\", "\\"));
+desc.value = desc.value.replace("\\n", "\n")
+console.log(problem)
+console.log(desc.value)
+const code = ref(problem.code)
+const result = md.render(desc.value)
 </script>
+<style scoped>
+.desc-container {
+  word-wrap: normal;
+  max-width: calc(50% - 10px);
+  padding:5px;
+  padding-right:20px;
+  min-height: calc(100vh - 202px);
+  border-right: 1px solid #efefef; /* 添加边框样式 */
+}
+</style>
