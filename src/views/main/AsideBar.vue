@@ -12,11 +12,14 @@
                 <el-menu-item index="/calendar" style="justify-content:start">
                     2.万年历问题
                 </el-menu-item>
-                <el-menu-item index="/test" style="justify-content:start">
-                    0.测试代码编辑器1
+                <el-menu-item index="/computer" style="justify-content:start">
+                    3.电脑销售
                 </el-menu-item>
-                <el-menu-item index="/test2" style="justify-content:start">
-                    0.测试代码编辑器2
+                <el-menu-item index="/fee" style="justify-content:start">
+                    4.话费系统
+                </el-menu-item>
+                <el-menu-item index="/sale" style="justify-content:start">
+                    5.销售平台
                 </el-menu-item>
             </el-menu-item-group>
         </el-sub-menu>

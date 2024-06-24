@@ -1,0 +1,305 @@
+{
+  "弱健壮等价类": [
+    {
+      "no": "TS1",
+      "a": 500,
+      "b": 500,
+      "c": 500,
+      "expected": "等边三角形",
+      "actual": "",
+      "result": ""
+    },
+    {
+      "no": "TS2",
+      "a": 2,
+      "b": 2,
+      "c": 3,
+      "expected": "等腰三角形",
+      "actual": "",
+      "result": ""
+    },
+    {
+      "no": "TS3",
+      "a": 30,
+      "b": 40,
+      "c": 50,
+      "expected": "一般三角形",
+      "actual": "",
+      "result": ""
+    },
+    {
+      "no": "TS4",
+      "a": 10,
+      "b": 10,
+      "c": 20,
+      "expected": "非三角形",
+      "actual": "",
+      "result": ""
+    },
+    {
+      "no": "TS5",
+      "a": -1,
+      "b": 2,
+      "c": 2,
+      "expected": "参数非法",
+      "actual": "",
+      "result": ""
+    },
+    {
+      "no": "TS6",
+      "a": 2,
+      "b": -1,
+      "c": 2,
+      "expected": "参数非法",
+      "actual": "",
+      "result": ""
+    },
+    {
+      "no": "TS7",
+      "a": 2,
+      "b": 2,
+      "c": -1,
+      "expected": "参数非法",
+      "actual": "",
+      "result": ""
+    },
+    {
+      "no": "TS8",
+      "a": 1001,
+      "b": 600,
+      "c": 600,
+      "expected": "参数非法",
+      "actual": "",
+      "result": ""
+    },
+    {
+      "no": "TS9",
+      "a": 600,
+      "b": 1001,
+      "c": 600,
+      "expected": "参数非法",
+      "actual": "",
+      "result": ""
+    },
+    {
+      "no": "TS10",
+      "a": 600,
+      "b": 600,
+      "c": 1001,
+      "expected": "参数非法",
+      "actual": "",
+      "result": ""
+    }
+  ],
+  "强一般等价类": [
+    {
+      "no": "TS1",
+      "a": 150,
+      "b": 200,
+      "c": 225,
+      "expected": "一般三角形",
+      "actual": "",
+      "result": ""
+    },
+    {
+      "no": "TS2",
+      "a": 150,
+      "b": 200,
+      "c": 200,
+      "expected": "等腰三角形",
+      "actual": "",
+      "result": ""
+    },
+    {
+      "no": "TS3",
+      "a": 150,
+      "b": 150,
+      "c": 150,
+      "expected": "等边三角形",
+      "actual": "",
+      "result": ""
+    },
+    {
+      "no": "TS4",
+      "a": 150,
+      "b": 150,
+      "c": 300,
+      "expected": "非三角形",
+      "actual": "",
+      "result": ""
+    }
+  ],
+  "健壮边界分析": [
+    {
+      "no": "TS1",
+      "a": 0,
+      "b": 600,
+      "c": 600,
+      "expected": "参数非法",
+      "actual": "",
+      "result": ""
+    },
+    {
+      "no": "TS2",
+      "a": 1,
+      "b": 600,
+      "c": 600,
+      "expected": "等腰三角形",
+      "actual": "",
+      "result": ""
+    },
+    {
+      "no": "TS3",
+      "a": 2,
+      "b": 600,
+      "c": 600,
+      "expected": "等腰三角形",
+      "actual": "",
+      "result": ""
+    },
+    {
+      "no": "TS4",
+      "a": 600,
+      "b": 600,
+      "c": 600,
+      "expected": "等边三角形",
+      "actual": "",
+      "result": ""
+    },
+    {
+      "no": "TS5",
+      "a": 999,
+      "b": 600,
+      "c": 600,
+      "expected": "等腰三角形",
+      "actual": "",
+      "result": ""
+    },
+    {
+      "no": "TS6",
+      "a": 1000,
+      "b": 600,
+      "c": 600,
+      "expected": "等腰三角形",
+      "actual": "",
+      "result": ""
+    },
+    {
+      "no": "TS7",
+      "a": 1001,
+      "b": 600,
+      "c": 600,
+      "expected": "参数非法",
+      "actual": "",
+      "result": ""
+    },
+    {
+      "no": "TS8",
+      "a": 600,
+      "b": 0,
+      "c": 600,
+      "expected": "参数非法",
+      "actual": "",
+      "result": ""
+    },
+    {
+      "no": "TS9",
+      "a": 600,
+      "b": 1,
+      "c": 600,
+      "expected": "等腰三角形",
+      "actual": "",
+      "result": ""
+    },
+    {
+      "no": "TS10",
+      "a": 600,
+      "b": 2,
+      "c": 600,
+      "expected": "等腰三角形",
+      "actual": "",
+      "result": ""
+    },
+    {
+      "no": "TS11",
+      "a": 600,
+      "b": 999,
+      "c": 600,
+      "expected": "等腰三角形",
+      "actual": "",
+      "result": ""
+    },
+    {
+      "no": "TS12",
+      "a": 600,
+      "b": 1000,
+      "c": 600,
+      "expected": "等腰三角形",
+      "actual": "",
+      "result": ""
+    },
+    {
+      "no": "TS13",
+      "a": 600,
+      "b": 1001,
+      "c": 600,
+      "expected": "参数非法",
+      "actual": "",
+      "result": ""
+    },
+    {
+      "no": "TS14",
+      "a": 600,
+      "b": 600,
+      "c": 0,
+      "expected": "参数非法",
+      "actual": "",
+      "result": ""
+    },
+    {
+      "no": "TS15",
+      "a": 600,
+      "b": 600,
+      "c": 1,
+      "expected": "等腰三角形",
+      "actual": "",
+      "result": ""
+    },
+    {
+      "no": "TS16",
+      "a": 600,
+      "b": 600,
+      "c": 2,
+      "expected": "等腰三角形",
+      "actual": "",
+      "result": ""
+    },
+    {
+      "no": "TS17",
+      "a": 600,
+      "b": 600,
+      "c": 999,
+      "expected": "等腰三角形",
+      "actual": "",
+      "result": ""
+    },
+    {
+      "no": "TS18",
+      "a": 600,
+      "b": 600,
+      "c": 1000,
+      "expected": "等腰三角形",
+      "actual": "",
+      "result": ""
+    },
+    {
+      "no": "TS19",
+      "a": 600,
+      "b": 600,
+      "c": 1001,
+      "expected": "参数非法",
+      "actual": "",
+      "result": ""
+    }
+  ]
+}

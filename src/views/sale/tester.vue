@@ -29,25 +29,29 @@
     <el-table border
      :data="data" style="width: 80vw; max-height:70vh; overflow-x: auto;overflow-y: auto;">
         <el-table-column prop="no" label="用例编号" width=auto />
-        <el-table-column prop="a" label="第一条边" width=auto />
-        <el-table-column prop="b" label="第二条边" width="auto"/>
-        <el-table-column prop="c" label="第三条边" width="auto"/>
-        <el-table-column prop="expected" label="期望值" width="auto"/>
-        <el-table-column prop="actual" label="实际值" width="auto"/>
+        <el-table-column prop="s" label="总销售额" width=auto />
+        <el-table-column prop="d" label="请假天数" width="auto"/>
+        <el-table-column prop="r" label="资金到账率" width="auto"/>
+        <el-table-column prop="ecom" label="期望佣金" width="auto"/>
+        <el-table-column prop="emsg" label="期望信息" width="auto"/>
+        <el-table-column prop="acom" label="实际佣金" width="auto"/>
+        <el-table-column prop="amsg" label="实际信息" width="auto"/>
         <el-table-column prop="result" label="测试结果" width="auto"/>
     </el-table>
 </div>
 </template>
 <script setup>
 import { ref, reactive } from 'vue'
-import testCases from '@/assets/json/triangle.json'
-import triangle from '@/assets/funcs/triangle';
-const caseName = ["健壮边界分析", "强一般等价类", "弱健壮等价类"]
+import testCases from '@/assets/json/sale.json'
+import sale from '@/assets/funcs/sale.js';
+const caseName = ["语句覆盖", "判断覆盖", "条件覆盖", "条件判断覆盖", "条件组合覆盖"]
 const value = ref("0")
 const options = ref([
-    {value:"0", label:"健壮边界分析"},
-    {value:"1", label:"强一般等价类"},
-    {value:"2", label:"弱健壮等价类"}
+    {value:"0", label:"语句覆盖"},
+    {value:"1", label:"判断覆盖"},
+    {value:"2", label:"条件覆盖"},
+    {value:"3", label:"条件判断覆盖"},
+    {value:"4", label:"条件组合覆盖"},
 ])
 const caseNum = ref(0)
 const casePassed = ref(0)
@@ -62,11 +66,16 @@ function updateData()
 
 function startTest(){
     reset()
+    console.log(data)
     for(let i in data)
     {
         caseNum.value++
-        data[i].actual = triangle(data[i].a, data[i].b, data[i].c)
-        data[i].result = (data[i].actual == data[i].expected) ? "通过" :"未通过"
+        // data[i].actual = calendar(parseInt(data[i].y), parseInt(data[i].m), parseInt(data[i].d))
+        // data[i].result = (data[i].actual == data[i].expected) ? "通过" :"未通过"
+        let ret = sale(data[i].s, data[i].d, data[i].r)
+        data[i].acom = ret[0]
+        data[i].amsg = ret[1]
+        data[i].result = (data[i].acom == data[i].ecom && data[i].amsg == data[i].emsg) ? "通过":"不通过"
         if(data[i].result == "通过")
         {
             casePassed.value++;
@@ -79,7 +88,9 @@ function reset(){
     casePassed.value = 0
     for(let i in data)
     {
-        data[i].actual = ""
+        data[i].atot = ""
+        data[i].acms = ""
+        data[i].amsg = ""
         data[i].result = ""
     }
 }

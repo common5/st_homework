@@ -14,7 +14,7 @@
 <script setup>
 import { ref } from 'vue'
 import Desc from './description.vue'
-import test2 from '../test2.vue'
+// import test2 from '../test2.vue'
 import tester from './tester.vue'
 const activeName = ref("1")
 </script>

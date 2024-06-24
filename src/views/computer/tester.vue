@@ -29,25 +29,27 @@
     <el-table border
      :data="data" style="width: 80vw; max-height:70vh; overflow-x: auto;overflow-y: auto;">
         <el-table-column prop="no" label="用例编号" width=auto />
-        <el-table-column prop="a" label="第一条边" width=auto />
-        <el-table-column prop="b" label="第二条边" width="auto"/>
-        <el-table-column prop="c" label="第三条边" width="auto"/>
-        <el-table-column prop="expected" label="期望值" width="auto"/>
-        <el-table-column prop="actual" label="实际值" width="auto"/>
+        <el-table-column prop="f" label="月主机售量" width=auto />
+        <el-table-column prop="s" label="月屏幕售量" width="auto"/>
+        <el-table-column prop="e" label="月外设售量" width="auto"/>
+        <el-table-column prop="etot" label="期望总销售额" width="auto"/>
+        <el-table-column prop="ecms" label="期望佣金" width="auto"/>
+        <el-table-column prop="emsg" label="期望信息" width="auto"/>
+        <el-table-column prop="atot" label="实际总销售额" width="auto"/>
+        <el-table-column prop="acms" label="实际佣金" width="auto"/>
+        <el-table-column prop="amsg" label="实际信息" width="auto"/>
         <el-table-column prop="result" label="测试结果" width="auto"/>
     </el-table>
 </div>
 </template>
 <script setup>
 import { ref, reactive } from 'vue'
-import testCases from '@/assets/json/triangle.json'
-import triangle from '@/assets/funcs/triangle';
+import testCases from '@/assets/json/computer_sale.json'
+import computerSale from '@/assets/funcs/computer_sale.js';
 const caseName = ["健壮边界分析", "强一般等价类", "弱健壮等价类"]
 const value = ref("0")
 const options = ref([
     {value:"0", label:"健壮边界分析"},
-    {value:"1", label:"强一般等价类"},
-    {value:"2", label:"弱健壮等价类"}
 ])
 const caseNum = ref(0)
 const casePassed = ref(0)
@@ -62,11 +64,17 @@ function updateData()
 
 function startTest(){
     reset()
+    console.log(data)
     for(let i in data)
     {
         caseNum.value++
-        data[i].actual = triangle(data[i].a, data[i].b, data[i].c)
-        data[i].result = (data[i].actual == data[i].expected) ? "通过" :"未通过"
+        // data[i].actual = calendar(parseInt(data[i].y), parseInt(data[i].m), parseInt(data[i].d))
+        // data[i].result = (data[i].actual == data[i].expected) ? "通过" :"未通过"
+        let ret = computerSale(data[i].f, data[i].s, data[i].e)
+        data[i].atot = ret[0]
+        data[i].acms = ret[1]
+        data[i].amsg = ret[2]
+        data[i].result = (data[i].atot == data[i].etot && data[i].acms == data[i].ecms && data[i].amsg == data[i].emsg) ? "通过":"不通过"
         if(data[i].result == "通过")
         {
             casePassed.value++;
@@ -79,7 +87,9 @@ function reset(){
     casePassed.value = 0
     for(let i in data)
     {
-        data[i].actual = ""
+        data[i].atot = ""
+        data[i].acms = ""
+        data[i].amsg = ""
         data[i].result = ""
     }
 }

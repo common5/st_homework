@@ -8,8 +8,8 @@
 import markdownit from 'markdown-it'
 import test2 from '../test2.vue'
 import { ref } from 'vue'
-import code_str from '@/assets/funcs/triangle.js?raw'
-import desc_str from '@/assets/funcs/triangle.md?raw'
+import code_str from '@/assets/funcs/fee.js?raw'
+import desc_str from '@/assets/funcs/fee.md?raw'
 const md = markdownit({
     breaks:true
 })

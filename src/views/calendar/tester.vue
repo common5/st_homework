@@ -29,9 +29,9 @@
     <el-table border
      :data="data" style="width: 80vw; max-height:70vh; overflow-x: auto;overflow-y: auto;">
         <el-table-column prop="no" label="用例编号" width=auto />
-        <el-table-column prop="a" label="第一条边" width=auto />
-        <el-table-column prop="b" label="第二条边" width="auto"/>
-        <el-table-column prop="c" label="第三条边" width="auto"/>
+        <el-table-column prop="y" label="年" width=auto />
+        <el-table-column prop="m" label="月" width="auto"/>
+        <el-table-column prop="d" label="日" width="auto"/>
         <el-table-column prop="expected" label="期望值" width="auto"/>
         <el-table-column prop="actual" label="实际值" width="auto"/>
         <el-table-column prop="result" label="测试结果" width="auto"/>
@@ -40,8 +40,8 @@
 </template>
 <script setup>
 import { ref, reactive } from 'vue'
-import testCases from '@/assets/json/triangle.json'
-import triangle from '@/assets/funcs/triangle';
+import testCases from '@/assets/json/calendar.json'
+import calendar from '@/assets/funcs/calendar.js';
 const caseName = ["健壮边界分析", "强一般等价类", "弱健壮等价类"]
 const value = ref("0")
 const options = ref([
@@ -62,10 +62,11 @@ function updateData()
 
 function startTest(){
     reset()
+    console.log(data)
     for(let i in data)
     {
         caseNum.value++
-        data[i].actual = triangle(data[i].a, data[i].b, data[i].c)
+        data[i].actual = calendar(parseInt(data[i].y), parseInt(data[i].m), parseInt(data[i].d))
         data[i].result = (data[i].actual == data[i].expected) ? "通过" :"未通过"
         if(data[i].result == "通过")
         {

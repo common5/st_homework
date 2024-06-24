@@ -1,13 +1,16 @@
 /**
  * 判断三角形类型
- * @param {number} a 
- * @param {number} b 
- * @param {number} c 
+ * @param {number} a 第一条边
+ * @param {number} b 第二条边
+ * @param {number} c 第三条边
  * @return {string}
  */
 function triangle(a, b, c) {
     for (let i = 0; i < 3; i++) {
         if (typeof arguments[i] !== 'number') {
+            return "参数非法"
+        }
+        if (arguments[i] <= 0 || arguments[i] > 1000) {
             return "参数非法"
         }
     }

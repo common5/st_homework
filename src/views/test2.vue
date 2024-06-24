@@ -1,5 +1,5 @@
 <template>
-    <codemirror :modelValue="code" placeholder="Code goes here..." :style="{ height: '100%' }" :autofocus="true"
+    <codemirror :modelValue="code" placeholder="Code goes here..." :style="{ maxHeight: '75vh' }" :autofocus="true"
         :indent-with-tab="true" :tab-size="2" :extensions="extensions" @ready="handleReady" :disabled="true"
         @change="log('change', $event)" @focus="log('focus', $event)" @blur="log('blur', $event)" />
 </template>
